@@ -7,7 +7,7 @@ def get_connection():
     # Create a MySQL connection using values from the settings class.
     return mysql.connector.connect(
         host=settings.db_host,
-        port=int(settings.db_port),
+        port=int(settings.db_port) if settings.db_port else 3306,
         user=settings.db_user,
         password=settings.db_password,
         database=settings.db_name
